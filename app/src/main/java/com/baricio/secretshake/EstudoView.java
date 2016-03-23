@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -21,6 +22,22 @@ public class EstudoView extends View {
 
     public EstudoView(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+
+    public void DrawPlanoCartesiano(Canvas canvas){
+        Path path = new Path();
+
+        int max = toPixel(10);
+
+        for(int n=0; n<=10; n++){
+            path.moveTo(toPixel(n),1);
+            path.lineTo(toPixel(n),max);
+        }
+    }
+
+    private int toPixel(int vezes) {
+        return vezes * getUnidade();
     }
 
     @Override
